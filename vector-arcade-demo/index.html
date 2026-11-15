@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090913">
+  <meta name="description" content="Vector Arcade — a bilingual WordPress theme and technical portfolio demo.">
+  <title>Vector Arcade — WordPress Theme Demo</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .va-header { position: sticky; top: 0; z-index: 50; }
+    .va-hero { padding-top: 68px; }
+    .va-hero-grid { grid-template-columns: minmax(0,.94fr) minmax(360px,1.06fr); }
+    .va-hero-art img { max-height: 480px; object-fit: contain; }
+    .va-nav-wrap { gap: 18px; }
+    .va-post-card { min-height: 245px; }
+    .va-post-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .va-demo-note { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:28px; padding:16px 18px; border:1px solid rgba(80,246,255,.2); border-radius:9px; color:var(--va-muted); background:rgba(9,9,19,.6); font-size:12px; }
+    .va-demo-note strong { color:var(--va-cyan); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+    .va-download-link { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px; border:1px solid var(--va-cyan); border-radius:7px; color:#071015; background:var(--va-cyan); font-size:10px; font-weight:950; letter-spacing:.12em; text-decoration:none; text-transform:uppercase; }
+    .va-download-link:hover { color:#071015; box-shadow:var(--va-glow-cyan); }
+    .va-tech-chip-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+    .va-tech-chip { padding:8px 10px; border:1px solid var(--va-line); border-radius:6px; color:#d9d7f0; background:rgba(20,20,42,.65); font-size:9px; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+    .va-proof-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .va-proof-item { display:flex; gap:14px; padding:20px; border:1px solid var(--va-line); border-radius:12px; background:rgba(18,18,39,.68); }
+    .va-proof-item > span { color:var(--va-pink); font:900 20px/1 var(--va-display); }
+    .va-proof-item h3 { margin:0 0 6px; color:var(--va-ink); font:900 16px/1.2 var(--va-display); text-transform:uppercase; }
+    .va-proof-item p { margin:0; color:var(--va-muted); font-size:12px; line-height:1.6; }
+    .va-section-heading p { max-width:560px; margin:12px 0 0; color:var(--va-muted); font-size:14px; }
+    .va-footer-main { align-items:start; }
+    .va-footer-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+    .va-language-switcher { flex-shrink:0; }
+    .va-lang-button { display:inline-grid; min-width:32px; min-height:28px; place-items:center; border:0; border-radius:5px; color:var(--va-muted); background:transparent; font-size:9px; font-weight:950; letter-spacing:.1em; cursor:pointer; }
+    .va-lang-button:hover, .va-lang-button.is-active { color:#071015; background:var(--va-cyan); box-shadow:0 0 14px rgba(80,246,255,.22); }
+    .va-menu-toggle { color:var(--va-ink); }
+    .va-menu-toggle:focus-visible, a:focus-visible, button:focus-visible { outline:2px solid var(--va-pink); outline-offset:4px; }
+    .va-menu a[aria-current="location"] { color:var(--va-cyan); }
+    @media(max-width:900px) {
+      .va-hero-grid { grid-template-columns:minmax(0,1fr) minmax(270px,.9fr); }
+      .va-post-grid { grid-template-columns:1fr 1fr; }
+      .va-post-card:last-child { grid-column:1/-1; }
+      .va-nav-wrap { gap:10px; }
+    }
+    @media(max-width:720px) {
+      .va-header { position:relative; }
+      .va-hero-grid { grid-template-columns:1fr; }
+      .va-hero-art { width:min(100%,540px); margin:-8px auto 0; }
+      .va-nav-wrap { position:absolute; top:calc(100% + 1px); right:0; left:0; display:none; padding:16px; border-bottom:1px solid var(--va-line); background:rgba(8,8,19,.98); }
+      .va-nav-wrap.is-open { display:block; }
+      .va-nav ul { align-items:stretch; flex-direction:column; gap:0; }
+      .va-nav li { border-bottom:1px solid rgba(115,112,180,.14); }
+      .va-nav a { display:block; padding:13px 5px; }
+      .va-nav-wrap .va-language-switcher { margin-top:12px; }
+      .va-nav-wrap .va-header-cta { display:inline-flex; margin-top:10px; }
+      .va-post-grid { grid-template-columns:1fr; }
+      .va-post-card:last-child { grid-column:auto; }
+      .va-proof-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<a class="va-skip-link" href="#content" data-i18n="skip">Skip to content</a>
+<header class="va-header" id="top">
+  <div class="va-wrap va-header-inner">
+    <a class="va-brand" href="#top" aria-label="Vector Arcade home">
+      <span class="va-brand-mark" aria-hidden="true">V/A</span>
+      <span class="va-brand-copy"><span class="va-site-title">VECTOR ARCADE</span><span class="va-site-tagline" data-i18n="tagline">WORDPRESS THEME / TECHNICAL SHOWCASE</span></span>
+    </a>
+    <button class="va-menu-toggle" id="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="va-nav-wrap" id="primary-navigation">
+      <nav class="va-nav" aria-label="Primary navigation"><ul class="va-menu">
+        <li><a href="#overview" data-i18n="nav-overview">Overview</a></li>
+        <li><a href="#features" data-i18n="nav-features">Features</a></li>
+        <li><a href="#technical" data-i18n="nav-technical">Technical</a></li>
+        <li><a href="#review" data-i18n="nav-review">Review</a></li>
+      </ul></nav>
+      <div class="va-language-switcher" role="group" aria-label="Choose language" id="language-switcher">
+        <button class="va-lang-button is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button class="va-lang-button" type="button" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+      <a class="va-header-cta" href="#technical" data-i18n="cta-header">Technical notes</a>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+  <section class="va-hero" id="overview">
+    <div class="va-wrap va-hero-grid">
+      <div class="va-hero-copy">
+        <span class="va-eyebrow" data-i18n="eyebrow">WORDPRESS THEME / INTERACTIVE DEMO</span>
+        <h1><span data-i18n="hero-line-one">A DEVELOPER PORTFOLIO.</span><span class="va-neon" data-i18n="hero-line-two">WITH ARCADE ENERGY.</span></h1>
+        <p class="va-hero-description" data-i18n="hero-description">A responsive WordPress theme with original neon vector artwork, a bilingual interface and a clear technical story.</p>
+        <div class="va-hero-actions">
+          <a class="va-button" href="#features" data-i18n="cta-primary">EXPLORE THE BUILD</a>
+          <a class="va-button va-button--ghost" href="#technical" data-i18n="cta-secondary">VIEW TECHNICAL NOTES</a>
+        </div>
+        <div class="va-hero-meta"><span><i class="va-status-dot" aria-hidden="true"></i><span data-i18n="status">INSTALLABLE WORDPRESS THEME</span></span><span data-i18n="languages">ENGLISH + FRENCH</span></div>
+        <div class="va-demo-note"><strong data-i18n="review-label">FOR TECHNICAL REVIEW</strong><span data-i18n="review-note">Browse the interface, switch languages, inspect the responsive layout, then download the installable theme package.</span></div>
+      </div>
+      <div class="va-hero-art">
+        <img src="./assets/images/neon-arcade.svg" alt="Neon vector illustration of a retro arcade machine on a perspective grid" fetchpriority="high">
+        <span class="va-hero-corner" data-i18n="art-label">BUILT TO BE EXPLORED</span>
+      </div>
+    </div>
+    <div class="va-scanline" aria-hidden="true"></div>
+  </section>
+
+  <section class="va-signal-strip" aria-label="Theme highlights">
+    <div class="va-wrap va-signal-inner">
+      <div class="va-signal-item"><span class="va-signal-number">01</span><span class="va-signal-label"><strong data-i18n="signal-one-title">WORDPRESS-NATIVE</strong><span data-i18n="signal-one-copy">PHP templates and theme hooks</span></span></div>
+      <div class="va-signal-item"><span class="va-signal-number">02</span><span class="va-signal-label"><strong data-i18n="signal-two-title">BILINGUAL INTERFACE</strong><span data-i18n="signal-two-copy">Visitor-controlled EN / FR</span></span></div>
+      <div class="va-signal-item"><span class="va-signal-number">03</span><span class="va-signal-label"><strong data-i18n="signal-three-title">RESPONSIVE BY DESIGN</strong><span data-i18n="signal-three-copy">Keyboard and reduced-motion support</span></span></div>
+    </div>
+  </section>
+
+  <section class="va-section" id="features">
+    <div class="va-wrap">
+      <div class="va-section-heading">
+        <div><span class="va-eyebrow" data-i18n="features-eyebrow">WHAT CAN BE INSPECTED</span><h2><span data-i18n="features-heading-a">BUILT FOR THE</span> <span data-i18n="features-heading-b">REAL WEB</span></h2><p data-i18n="features-intro">This is a theme showcase, not a static screenshot. The installable package contains the PHP templates, translation files, styles and frontend behavior behind this preview.</p></div>
+        <a class="va-section-link" href="#technical" data-i18n="features-link">ARCHITECTURE ↓</a>
+      </div>
+      <div class="va-capability-grid">
+        <article class="va-capability-card"><span class="va-capability-index">01 / WORDPRESS</span><h3 data-i18n="card-one-title">TEMPLATE SYSTEM</h3><p data-i18n="card-one-copy">Front page, single posts, pages, archives, search, comments and a custom 404 template.</p><a href="#technical"><span data-i18n="card-one-link">VIEW TEMPLATE MAP</span> <span aria-hidden="true">→</span></a></article>
+        <article class="va-capability-card"><span class="va-capability-index">02 / LOCALIZATION</span><h3 data-i18n="card-two-title">ENGLISH + FRENCH</h3><p data-i18n="card-two-copy">A visible language switcher stores the visitor’s selection and loads the French gettext catalog.</p><a href="#top"><span data-i18n="card-two-link">TRY THE SWITCHER</span> <span aria-hidden="true">→</span></a></article>
+        <article class="va-capability-card"><span class="va-capability-index">03 / ACCESSIBILITY</span><h3 data-i18n="card-three-title">RESPONSIVE INTERACTION</h3><p data-i18n="card-three-copy">Mobile navigation, semantic landmarks, keyboard focus states and reduced-motion handling.</p><a href="#review"><span data-i18n="card-three-link">REVIEW CHECKLIST</span> <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="va-section va-section--technical" id="technical">
+    <div class="va-wrap va-technical-grid">
+      <div><span class="va-eyebrow" data-i18n="technical-eyebrow">UNDER THE HOOD</span><h2 data-i18n="technical-heading">A PRACTICAL WORDPRESS BUILD.</h2><p data-i18n="technical-intro">The visual layer is backed by conventional WordPress theme APIs. Site owners can edit the hero copy, assign menus, upload a logo and publish posts from the dashboard.</p><div class="va-tech-chip-row"><span class="va-tech-chip">PHP</span><span class="va-tech-chip">WordPress APIs</span><span class="va-tech-chip">gettext</span><span class="va-tech-chip">CSS</span><span class="va-tech-chip">Vanilla JS</span><span class="va-tech-chip">SVG</span></div></div>
+      <div class="va-tech-list">
+        <div><strong>01</strong><span><b data-i18n="tech-one-title">PHP THEME TEMPLATES</b><small data-i18n="tech-one-copy">Template hierarchy, reusable template parts, theme hooks and Customizer settings.</small></span></div>
+        <div><strong>02</strong><span><b data-i18n="tech-two-title">WORDPRESS LOCALIZATION</b><small data-i18n="tech-two-copy">Translation-ready strings, French .po / .mo catalog and a persistent visitor language preference.</small></span></div>
+        <div><strong>03</strong><span><b data-i18n="tech-three-title">FRONTEND ENGINEERING</b><small data-i18n="tech-three-copy">CSS custom properties, responsive layouts and a small vanilla JavaScript navigation controller.</small></span></div>
+        <div><strong>04</strong><span><b data-i18n="tech-four-title">LOCAL VECTOR ASSETS</b><small data-i18n="tech-four-copy">Original scalable SVG artwork; no remote font, image or JavaScript library dependency.</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="va-section" id="review">
+    <div class="va-wrap">
+      <div class="va-section-heading"><div><span class="va-eyebrow" data-i18n="review-eyebrow">REVIEW CHECKLIST</span><h2><span data-i18n="review-heading-a">A WORKING</span> <span data-i18n="review-heading-b">SAMPLE</span></h2><p data-i18n="review-intro">A quick route through the details a technical reviewer or hiring manager may want to inspect.</p></div></div>
+      <div class="va-proof-grid">
+        <article class="va-proof-item"><span>✓</span><div><h3 data-i18n="proof-one-title">INSTALLABLE PACKAGE</h3><p data-i18n="proof-one-copy">A standard WordPress theme ZIP with a conventional theme directory structure.</p></div></article>
+        <article class="va-proof-item"><span>✓</span><div><h3 data-i18n="proof-two-title">TRANSLATION FILES</h3><p data-i18n="proof-two-copy">French source catalog and compiled MO file are included in the package.</p></div></article>
+        <article class="va-proof-item"><span>✓</span><div><h3 data-i18n="proof-three-title">EDITABLE CONTENT</h3><p data-i18n="proof-three-copy">Uses WordPress posts, pages, menus, featured images and Customizer controls.</p></div></article>
+        <article class="va-proof-item"><span>✓</span><div><h3 data-i18n="proof-four-title">NO REMOTE ASSETS</h3><p data-i18n="proof-four-copy">The demo runs from local files and does not require an external service.</p></div></article>
+      </div>
+      <div class="va-hero-actions" style="margin-top:30px"><a class="va-download-link" href="./vector-arcade.zip" download data-i18n="download">DOWNLOAD THE WORDPRESS THEME</a><a class="va-button va-button--ghost" href="#top" data-i18n="back-top">BACK TO TOP ↑</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="va-footer">
+  <div class="va-wrap va-footer-main">
+    <div><p class="va-footer-title">VECTOR ARCADE</p><p class="va-footer-copy" data-i18n="footer-copy">A bilingual WordPress theme demo, built to be explored.</p></div>
+    <div class="va-footer-actions"><div class="va-tech-chip">WORDPRESS / PHP / CSS / JS</div><a class="va-section-link" href="#technical" data-i18n="footer-tech">TECHNICAL OVERVIEW →</a></div>
+  </div>
+  <div class="va-wrap va-footer-bottom"><span data-i18n="footer-bottom">THEME DEMONSTRATION · ENGLISH / FRENCH</span><a href="#top" data-i18n="back-top">BACK TO TOP ↑</a></div>
+</footer>
+
+<script>
+(() => {
+  const translations = {
+    en: {
+      skip:'Skip to content', tagline:'WORDPRESS THEME / TECHNICAL SHOWCASE', 'nav-overview':'Overview', 'nav-features':'Features', 'nav-technical':'Technical', 'nav-review':'Review', 'cta-header':'Technical notes', eyebrow:'WORDPRESS THEME / INTERACTIVE DEMO', 'hero-line-one':'A DEVELOPER PORTFOLIO.', 'hero-line-two':'WITH ARCADE ENERGY.', 'hero-description':'A responsive WordPress theme with original neon vector artwork, a bilingual interface and a clear technical story.', 'cta-primary':'EXPLORE THE BUILD', 'cta-secondary':'VIEW TECHNICAL NOTES', status:'INSTALLABLE WORDPRESS THEME', languages:'ENGLISH + FRENCH', 'review-label':'FOR TECHNICAL REVIEW', 'review-note':'Browse the interface, switch languages, inspect the responsive layout, then download the installable theme package.', 'art-label':'BUILT TO BE EXPLORED', 'signal-one-title':'WORDPRESS-NATIVE', 'signal-one-copy':'PHP templates and theme hooks', 'signal-two-title':'BILINGUAL INTERFACE', 'signal-two-copy':'Visitor-controlled EN / FR', 'signal-three-title':'RESPONSIVE BY DESIGN', 'signal-three-copy':'Keyboard and reduced-motion support', 'features-eyebrow':'WHAT CAN BE INSPECTED', 'features-heading-a':'BUILT FOR THE', 'features-heading-b':'REAL WEB', 'features-intro':'This is a theme showcase, not a static screenshot. The installable package contains the PHP templates, translation files, styles and frontend behavior behind this preview.', 'features-link':'ARCHITECTURE ↓', 'card-one-title':'TEMPLATE SYSTEM', 'card-one-copy':'Front page, single posts, pages, archives, search, comments and a custom 404 template.', 'card-one-link':'VIEW TEMPLATE MAP', 'card-two-title':'ENGLISH + FRENCH', 'card-two-copy':'A visible language switcher stores the visitor’s selection and loads the French gettext catalog.', 'card-two-link':'TRY THE SWITCHER', 'card-three-title':'RESPONSIVE INTERACTION', 'card-three-copy':'Mobile navigation, semantic landmarks, keyboard focus states and reduced-motion handling.', 'card-three-link':'REVIEW CHECKLIST', 'technical-eyebrow':'UNDER THE HOOD', 'technical-heading':'A PRACTICAL WORDPRESS BUILD.', 'technical-intro':'The visual layer is backed by conventional WordPress theme APIs. Site owners can edit the hero copy, assign menus, upload a logo and publish posts from the dashboard.', 'tech-one-title':'PHP THEME TEMPLATES', 'tech-one-copy':'Template hierarchy, reusable template parts, theme hooks and Customizer settings.', 'tech-two-title':'WORDPRESS LOCALIZATION', 'tech-two-copy':'Translation-ready strings, French .po / .mo catalog and a persistent visitor language preference.', 'tech-three-title':'FRONTEND ENGINEERING', 'tech-three-copy':'CSS custom properties, responsive layouts and a small vanilla JavaScript navigation controller.', 'tech-four-title':'LOCAL VECTOR ASSETS', 'tech-four-copy':'Original scalable SVG artwork; no remote font, image or JavaScript library dependency.', 'review-eyebrow':'REVIEW CHECKLIST', 'review-heading-a':'A WORKING', 'review-heading-b':'SAMPLE', 'review-intro':'A quick route through the details a technical reviewer or hiring manager may want to inspect.', 'proof-one-title':'INSTALLABLE PACKAGE', 'proof-one-copy':'A standard WordPress theme ZIP with a conventional theme directory structure.', 'proof-two-title':'TRANSLATION FILES', 'proof-two-copy':'French source catalog and compiled MO file are included in the package.', 'proof-three-title':'EDITABLE CONTENT', 'proof-three-copy':'Uses WordPress posts, pages, menus, featured images and Customizer controls.', 'proof-four-title':'NO REMOTE ASSETS', 'proof-four-copy':'The demo runs from local files and does not require an external service.', download:'DOWNLOAD THE WORDPRESS THEME', 'back-top':'BACK TO TOP ↑', 'footer-copy':'A bilingual WordPress theme demo, built to be explored.', 'footer-tech':'TECHNICAL OVERVIEW →', 'footer-bottom':'THEME DEMONSTRATION · ENGLISH / FRENCH'
+    },
+    fr: {
+      skip:'Aller au contenu', tagline:'THÈME WORDPRESS / PRÉSENTATION TECHNIQUE', 'nav-overview':'Présentation', 'nav-features':'Fonctionnalités', 'nav-technical':'Technique', 'nav-review':'Évaluation', 'cta-header':'Notes techniques', eyebrow:'THÈME WORDPRESS / DÉMO INTERACTIVE', 'hero-line-one':'UN PORTFOLIO DE DÉVELOPPEUR.', 'hero-line-two':'AVEC UNE ÉNERGIE ARCADE.', 'hero-description':'Un thème WordPress adaptatif, avec des illustrations vectorielles néon originales, une interface bilingue et une présentation technique claire.', 'cta-primary':'EXPLORER LE PROJET', 'cta-secondary':'VOIR LES NOTES TECHNIQUES', status:'THÈME WORDPRESS INSTALLABLE', languages:'ANGLAIS + FRANÇAIS', 'review-label':'POUR UNE ÉVALUATION TECHNIQUE', 'review-note':'Parcourez l’interface, changez de langue, examinez la mise en page adaptative, puis téléchargez le thème installable.', 'art-label':'CONÇU POUR ÊTRE EXPLORÉ', 'signal-one-title':'NATIF WORDPRESS', 'signal-one-copy':'Modèles PHP et hooks du thème', 'signal-two-title':'INTERFACE BILINGUE', 'signal-two-copy':'Choix de langue EN / FR', 'signal-three-title':'ADAPTATIF PAR CONCEPTION', 'signal-three-copy':'Clavier et réduction des animations', 'features-eyebrow':'ÉLÉMENTS À EXAMINER', 'features-heading-a':'CONÇU POUR LE', 'features-heading-b':'WEB RÉEL', 'features-intro':'Il s’agit d’une démonstration de thème, et non d’une simple capture statique. Le paquet installable contient les modèles PHP, les fichiers de traduction, les styles et les interactions présentés ici.', 'features-link':'ARCHITECTURE ↓', 'card-one-title':'SYSTÈME DE MODÈLES', 'card-one-copy':'Accueil, articles, pages, archives, recherche, commentaires et modèle 404 personnalisé.', 'card-one-link':'VOIR LES MODÈLES', 'card-two-title':'ANGLAIS + FRANÇAIS', 'card-two-copy':'Un sélecteur de langue mémorise le choix du visiteur et charge le catalogue gettext français.', 'card-two-link':'ESSAYER LE SÉLECTEUR', 'card-three-title':'INTERACTIONS ADAPTATIVES', 'card-three-copy':'Navigation mobile, repères sémantiques, focus clavier et gestion de la réduction des animations.', 'card-three-link':'LISTE DE VÉRIFICATION', 'technical-eyebrow':'SOUS LE CAPOT', 'technical-heading':'UNE RÉALISATION WORDPRESS CONCRÈTE.', 'technical-intro':'L’interface repose sur les API classiques des thèmes WordPress. Depuis le tableau de bord, le propriétaire du site peut modifier le texte d’accueil, assigner des menus, ajouter un logo et publier des articles.', 'tech-one-title':'MODÈLES DE THÈME PHP', 'tech-one-copy':'Hiérarchie des modèles, fragments réutilisables, hooks et réglages du Personnaliseur.', 'tech-two-title':'LOCALISATION WORDPRESS', 'tech-two-copy':'Chaînes prêtes à traduire, catalogue français .po / .mo et préférence linguistique mémorisée.', 'tech-three-title':'DÉVELOPPEMENT FRONTEND', 'tech-three-copy':'Propriétés CSS personnalisées, mises en page adaptatives et contrôleur de navigation léger en JavaScript natif.', 'tech-four-title':'RESSOURCES VECTORIELLES LOCALES', 'tech-four-copy':'Illustrations SVG adaptables et originales, sans dépendance à des polices, images ou bibliothèques JavaScript distantes.', 'review-eyebrow':'LISTE DE VÉRIFICATION', 'review-heading-a':'UN EXEMPLE', 'review-heading-b':'FONCTIONNEL', 'review-intro':'Un parcours rapide des éléments qu’un responsable technique ou un recruteur peut souhaiter examiner.', 'proof-one-title':'PAQUET INSTALLABLE', 'proof-one-copy':'Une archive de thème WordPress standard avec une structure de répertoires conventionnelle.', 'proof-two-title':'FICHIERS DE TRADUCTION', 'proof-two-copy':'Le catalogue source français et le fichier MO compilé sont inclus dans le paquet.', 'proof-three-title':'CONTENU MODIFIABLE', 'proof-three-copy':'Utilise les articles, pages, menus, images mises en avant et réglages du Personnaliseur WordPress.', 'proof-four-title':'AUCUNE RESSOURCE DISTANTE', 'proof-four-copy':'La démo fonctionne à partir de fichiers locaux et ne dépend d’aucun service externe.', download:'TÉLÉCHARGER LE THÈME WORDPRESS', 'back-top':'RETOUR EN HAUT ↑', 'footer-copy':'Une démo de thème WordPress bilingue, conçue pour être explorée.', 'footer-tech':'APERÇU TECHNIQUE →', 'footer-bottom':'DÉMONSTRATION DU THÈME · ANGLAIS / FRANÇAIS'
+    }
+  };
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-lang]')];
+  const menu = document.getElementById('primary-navigation');
+  const menuToggle = document.getElementById('menu-toggle');
+  function applyLanguage(lang, persist=true) {
+    const selected = translations[lang] ? lang : 'en';
+    root.lang = selected;
+    document.title = selected === 'fr' ? 'Vector Arcade — Démo de thème WordPress' : 'Vector Arcade — WordPress Theme Demo';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (Object.prototype.hasOwnProperty.call(translations[selected], key)) el.textContent = translations[selected][key];
+    });
+    buttons.forEach(button => {
+      const active = button.dataset.lang === selected;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    document.querySelector('.va-language-switcher').setAttribute('aria-label', selected === 'fr' ? 'Choisir la langue' : 'Choose language');
+    document.querySelector('.va-nav').setAttribute('aria-label', selected === 'fr' ? 'Navigation principale' : 'Primary navigation');
+    document.querySelector('.va-hero-art img').setAttribute('alt', selected === 'fr' ? 'Illustration vectorielle néon d’une borne d’arcade rétro sur une grille en perspective' : 'Neon vector illustration of a retro arcade machine on a perspective grid');
+    menuToggle.setAttribute('aria-label', selected === 'fr' ? 'Afficher ou masquer la navigation' : 'Toggle navigation');
+    if (persist) { try { localStorage.setItem('vectorArcadeLanguage', selected); } catch (_) {} }
+  }
+  buttons.forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+  menuToggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('is-open');
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    menu.classList.remove('is-open'); menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+  let saved = 'en';
+  try { saved = localStorage.getItem('vectorArcadeLanguage') || 'en'; } catch (_) {}
+  applyLanguage(saved, false);
+})();
+</script>
+</body>
+</html>

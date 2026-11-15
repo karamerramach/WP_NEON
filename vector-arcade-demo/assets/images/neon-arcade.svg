@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-labelledby="title desc">
+  <title id="title">Vector Arcade machine</title>
+  <desc id="desc">A retro arcade cabinet drawn with cyan, violet and magenta neon line art above a perspective grid.</desc>
+  <defs>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a5ffff"/><stop offset=".45" stop-color="#50f6ff"/><stop offset="1" stop-color="#1aa8d9"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb3f2"/><stop offset=".55" stop-color="#ff4bd8"/><stop offset="1" stop-color="#a64bff"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a986ff"/><stop offset="1" stop-color="#5a39bb"/>
+    </linearGradient>
+    <radialGradient id="screen" cx="45%" cy="35%" r="75%">
+      <stop offset="0" stop-color="#143e59"/><stop offset=".62" stop-color="#0c1933"/><stop offset="1" stop-color="#080a1a"/>
+    </radialGradient>
+    <linearGradient id="cabinet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#26204f"/><stop offset=".5" stop-color="#15162f"/><stop offset="1" stop-color="#090d20"/>
+    </linearGradient>
+    <filter id="glowC" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feColorMatrix in="b" type="matrix" values="0 0 0 0 0.18  0 0 0 0 0.85  0 0 0 0 1  0 0 0 1 0" result="c"/><feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glowP" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feColorMatrix in="b" type="matrix" values="0 0 0 0 1  0 0 0 0 0.16  0 0 0 0 0.75  0 0 0 1 0" result="p"/><feMerge><feMergeNode in="p"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="stars" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="12" cy="18" r="1.4" fill="#b7faff" opacity=".8"/><circle cx="73" cy="39" r="1" fill="#ff8ee9" opacity=".8"/><circle cx="48" cy="83" r="1.2" fill="#a68bff" opacity=".8"/></pattern>
+  </defs>
+
+  <!-- Distant orbital halo and stars -->
+  <ellipse cx="400" cy="272" rx="275" ry="204" fill="none" stroke="#875dff" stroke-width="1.4" opacity=".5" transform="rotate(-20 400 272)"/>
+  <ellipse cx="400" cy="272" rx="310" ry="156" fill="none" stroke="#50f6ff" stroke-width="1" opacity=".24" transform="rotate(24 400 272)"/>
+  <rect x="25" y="26" width="710" height="510" fill="url(#stars)" opacity=".65"/>
+
+  <!-- Perspective floor grid -->
+  <g transform="translate(0 408)" opacity=".82" fill="none" stroke-linecap="round">
+    <path d="M55 160 L380 -18 L705 160" stroke="#ff4bd8" stroke-width="1.8" opacity=".65" filter="url(#glowP)"/>
+    <path d="M0 178 H760 M34 158 H726 M80 137 H680 M125 116 H635 M169 95 H591 M214 74 H546 M258 53 H502 M302 32 H458 M347 11 H413" stroke="#50f6ff" stroke-width="1" opacity=".52"/>
+    <path d="M380 -18 L0 178 M380 -18 L95 178 M380 -18 L190 178 M380 -18 L285 178 M380 -18 L475 178 M380 -18 L570 178 M380 -18 L665 178 M380 -18 L760 178" stroke="#50f6ff" stroke-width="1" opacity=".52"/>
+    <path d="M380 -18 L-65 220 M380 -18 L825 220" stroke="#ff4bd8" stroke-width="1.2" opacity=".35"/>
+  </g>
+
+  <!-- Main arcade cabinet -->
+  <g transform="translate(182 42)" stroke-linejoin="round">
+    <!-- rear offset silhouette -->
+    <path d="M150 38 L387 75 L422 422 L193 485 L150 38Z" fill="#0c1028" stroke="#a36bff" stroke-width="2" opacity=".78"/>
+    <path d="M387 75 L422 422 L449 406 L414 63Z" fill="#10152d" stroke="#ff4bd8" stroke-width="2" opacity=".85"/>
+    <!-- cabinet body -->
+    <path d="M119 22 L355 62 L385 410 L164 475 L119 22Z" fill="url(#cabinet)" stroke="url(#cyan)" stroke-width="3" filter="url(#glowC)"/>
+    <path d="M119 22 L355 62 L363 126 L126 87Z" fill="#171a3a" stroke="#ff4bd8" stroke-width="2.4" filter="url(#glowP)"/>
+    <path d="M143 41 L332 73 L337 104 L148 74Z" fill="#0b0e23" stroke="#8b6bff" stroke-width="1.2"/>
+    <path d="M161 53 L318 80" stroke="#50f6ff" stroke-width="2" opacity=".9" filter="url(#glowC)"/>
+
+    <!-- screen bezel -->
+    <path d="M129 104 L352 140 L365 300 L147 354Z" fill="#070b1d" stroke="#50f6ff" stroke-width="2.2" filter="url(#glowC)"/>
+    <path d="M145 120 L337 151 L348 285 L162 330Z" fill="url(#screen)" stroke="#a56cff" stroke-width="1.5"/>
+    <path d="M157 132 L327 160 L336 277 L173 317Z" fill="none" stroke="#50f6ff" stroke-width=".8" opacity=".55"/>
+    <!-- screen vector game icon -->
+    <g transform="translate(236 219)" filter="url(#glowP)">
+      <path d="M0 -66 L18 -12 L66 0 L18 13 L0 66 L-17 13 L-66 0 L-17 -12Z" fill="#172c59" stroke="#ff4bd8" stroke-width="2.2"/>
+      <path d="M0 -48 L12 -9 L49 0 L12 9 L0 48 L-12 9 L-49 0 L-12 -9Z" fill="none" stroke="#50f6ff" stroke-width="2"/>
+      <circle r="12" fill="#50f6ff"/><circle r="5" fill="#fff"/>
+    </g>
+    <path d="M167 146 L193 151 M301 168 L324 172" stroke="#fff" stroke-width="1.4" opacity=".7"/>
+
+    <!-- control deck -->
+    <path d="M148 359 L365 307 L378 367 L159 425Z" fill="#11162e" stroke="#ff4bd8" stroke-width="2.2" filter="url(#glowP)"/>
+    <path d="M162 370 L350 326" stroke="#50f6ff" stroke-width="1.5" opacity=".8"/>
+    <ellipse cx="225" cy="384" rx="16" ry="7" transform="rotate(-14 225 384)" fill="#050714" stroke="#a986ff" stroke-width="1.5"/>
+    <path d="M225 374 L225 350" stroke="#50f6ff" stroke-width="4" stroke-linecap="round" filter="url(#glowC)"/>
+    <circle cx="225" cy="346" r="7" fill="#ff4bd8" stroke="#ffd6f5" stroke-width="1.4" filter="url(#glowP)"/>
+    <circle cx="291" cy="354" r="8" fill="#ff4bd8" stroke="#ffe0f7" stroke-width="1.5" filter="url(#glowP)"/>
+    <circle cx="322" cy="346" r="8" fill="#50f6ff" stroke="#e3ffff" stroke-width="1.5" filter="url(#glowC)"/>
+    <circle cx="350" cy="338" r="5" fill="#ffe66d" stroke="#fff8c6" stroke-width="1"/>
+
+    <!-- lower kick plate and feet -->
+    <path d="M159 426 L378 369 L385 410 L164 475Z" fill="#12142d" stroke="#50f6ff" stroke-width="2"/>
+    <path d="M186 439 L352 395" stroke="#ff4bd8" stroke-width="2" opacity=".8" filter="url(#glowP)"/>
+    <path d="M177 474 L174 510 L211 501 L213 464 M354 419 L358 462 L389 453 L385 410" fill="#101329" stroke="#8c6cff" stroke-width="2"/>
+    <path d="M170 508 L212 498 M356 461 L392 450" stroke="#50f6ff" stroke-width="2.5" filter="url(#glowC)"/>
+
+    <!-- cabinet edge highlights -->
+    <path d="M119 22 L164 475" stroke="#d8ffff" stroke-width="1.2" opacity=".45"/>
+    <path d="M355 62 L385 410" stroke="#50f6ff" stroke-width="1.2" opacity=".8"/>
+    <path d="M130 91 L150 103 M376 389 L385 410" stroke="#fff" stroke-width="2" opacity=".7"/>
+  </g>
+
+  <!-- Small satellite objects -->
+  <g filter="url(#glowC)" fill="none" stroke="#50f6ff" stroke-width="2">
+    <path d="M80 202 l13 -22 13 22 -13 22Z"/><path d="M93 180 v44 M80 202 h26" opacity=".7"/>
+    <circle cx="644" cy="164" r="22" stroke="#ff4bd8"/><circle cx="644" cy="164" r="10" stroke="#50f6ff"/>
+    <path d="M616 164 H672 M644 136 V192" stroke="#ff4bd8" opacity=".6"/>
+  </g>
+  <g fill="#ffe66d" filter="url(#glowP)"><path d="M580 320 l7 17 17 7 -17 7 -7 17 -7 -17 -17 -7 17 -7Z"/><circle cx="107" cy="337" r="4"/><circle cx="690" cy="270" r="3"/></g>
+  <path d="M60 498 H130 M635 500 H700" stroke="#50f6ff" stroke-width="1.5" opacity=".6"/>
+</svg>
